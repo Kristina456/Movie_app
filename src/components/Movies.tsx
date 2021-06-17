@@ -29,16 +29,15 @@ export default function Movies() {
     useState<IMovieApiPage<IMovieApiPopularResponse>>();
 
   const API_KEY = `${process.env.REACT_APP_API_KEY}`;
+  const random = Math.floor(Math.random() * 100) + 1;
 
   const getMovies = function () {
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=2`;
+    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${random}`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
         console.log("Movie api response", json);
         const result: IMovieApiPage<IMovieApiPopularResponse> = json;
-
-        result.results.length = 6;
         setResponse(result);
       })
       .catch((error) => console.error(error));
@@ -59,7 +58,18 @@ export default function Movies() {
       <hr />
       {response?.results.map((item) => (
         <div key={item.id}>
-          <h1>{item.original_title}</h1>
+          <div>{item.vote_average}</div>
+          <div>
+            <img
+              src={`https://image.tmdb.org/t/p/w200` + item.poster_path}
+              alt={item.title}
+            />
+          </div>
+          <h1>
+            {item.original_title}
+            {item.release_date?.substring(0, 4)}
+          </h1>
+          <div>Language: {item.original_language}</div>
         </div>
       ))}
     </div>

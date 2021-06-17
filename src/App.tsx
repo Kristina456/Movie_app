@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from "./components/MovieApi";
-import "./App.css";
+import "./style.css";
 
 function App() {
   return (
