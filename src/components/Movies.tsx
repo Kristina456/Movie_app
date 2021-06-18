@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router";
 import { setConstantValue } from "typescript";
 import "./Movies.scss";
 
@@ -41,6 +42,13 @@ export default function Movies() {
     }
     getMovies(1);
   }, [response]);
+
+  const history = useHistory();
+
+  const routeChange = (movieId: number) => {
+    let path = `/moreInfo/${movieId}`;
+    history.push(path);
+  };
 
   const getMovies = function (page: number) {
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`;
@@ -96,7 +104,7 @@ export default function Movies() {
           <div>{item.release_date?.substring(0, 4)}</div>
           <h1>{item.original_title}</h1>
           <div>Language: {item.original_language}</div>
-          <button>More info</button>
+          <button onClick={() => routeChange(item.id)}> More info</button>
         </div>
       ))}
     </div>

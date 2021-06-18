@@ -1,11 +1,11 @@
 import React from "react";
-import Navigation from "./components/MovieApi";
+import MovieApi from "./components/MovieApi";
 import "./style.css";
 
 function App() {
   return (
     <div>
-      <Navigation />
+      <MovieApi />
     </div>
   );
 }
