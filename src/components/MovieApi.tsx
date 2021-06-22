@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import Movies from "./Movies";
-import Roulette from "./Roulette";
-import MoreInfo from "./MoreInfo";
+import Movies from "./movies/Movies";
+import Roulette from "./roulette/Roulette";
+import MoreInfo from "./more-info/MoreInfo";
 
 export default function Navigation() {
   return (

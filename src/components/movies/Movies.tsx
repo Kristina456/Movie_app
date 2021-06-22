@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { setConstantValue } from "typescript";
 import "./Movies.scss";
+import Loading from "../loading/Loading";
+import Error from "../error/Error";
 
 export interface IMovieApiPage<T> {
   page: number;
@@ -28,7 +30,6 @@ export interface IMovieApiPopularResponse {
 }
 
 const API_KEY = `${process.env.REACT_APP_API_KEY}`;
-// const random = Math.floor(Math.random() * 440) + 1;
 
 export default function Movies() {
   const [response, setResponse] =
@@ -50,7 +51,7 @@ export default function Movies() {
     history.push(path);
   };
 
-  const getMovies = function (page: number) {
+  const getMovies = (page: number) => {
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`;
     setLoading(true);
     fetch(url)
@@ -77,11 +78,11 @@ export default function Movies() {
   };
 
   if (loading) {
-    return <div>Loading page</div>;
+    return Loading();
   }
 
   if (error) {
-    return <div>Something went wrong!</div>;
+    return Error();
   }
 
   return (
@@ -90,6 +91,7 @@ export default function Movies() {
       <h1>Movie list</h1>
       <button onClick={loadPrevious}>Previous Page</button>
       <button onClick={loadNext}>Next Page</button>
+      <button onClick={() => history.push("/roulette")}>Roulette</button>
       <hr />
       {error && <div>{error}</div>}
       {response?.results.slice(0, 6).map((item) => (
