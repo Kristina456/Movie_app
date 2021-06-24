@@ -1,4 +1,5 @@
 @import "../base/colors";
+@import "../components-butttons/roulette";
 
 * {
   box-sizing: border-box;
@@ -16,7 +17,6 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: $primary-color;
-  padding: 10px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -46,6 +46,7 @@ body {
 
 .footer {
   flex: 0 0 15%;
+  width: 100%;
 }
 
 .header:hover {

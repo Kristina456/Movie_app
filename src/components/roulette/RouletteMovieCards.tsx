@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { MovieRoulette } from "./Roulette";
+import "../scss/components-butttons/_roulette.scss";
 
 export interface ReouletteMovieCardsInfo {
   moviesByGenre: MovieRoulette;
@@ -30,7 +31,12 @@ export default function RouleteMovieCards({
                 <div>{item.release_date?.substring(0, 4)}</div>
                 <h1>{item.original_title}</h1>
                 <div>Language: {item.original_language}</div>
-                <button onClick={() => routeChange(item.id)}>More info</button>
+                <button
+                  className="roulette-button"
+                  onClick={() => routeChange(item.id)}
+                >
+                  Roulette
+                </button>
               </div>
               <hr />
             </div>

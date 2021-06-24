@@ -1,5 +1,6 @@
-@import "../scss/layout/layout";
-@import "../scss/base/colors";
+@import "../layout/layout";
+@import "../base/colors";
+@import "../components-butttons/arrows";
 
 * {
   box-sizing: border-box;
@@ -37,20 +38,6 @@
   width: 150px;
   height: auto;
   max-height: 360px;
-}
-
-.arrow-item {
-  background-color: black;
-  border: none;
-}
-
-.arrow {
-  width: 50px;
-  background-color: black;
-}
-
-.arrow:hover {
-  cursor: pointer;
 }
 
 .c-home_section_result_movie_vote-average {

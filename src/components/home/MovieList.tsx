@@ -1,8 +1,8 @@
 import React from "react";
 import { IMovieApiPage, IMovieApiPopularResponse } from "./Movies";
-import "./_movie-list.scss";
 import leftArrow from "../images/leftArrow.png";
 import rightArrow from "../images/rightArrow.png";
+import "../scss/pages/_home.scss";
 
 export interface MovieListProps {
   response: IMovieApiPage<IMovieApiPopularResponse>;
@@ -64,7 +64,9 @@ export default function MovieList({
         </div>
       </div>
       <div className="footer">
-        <button onClick={onBack}>Roulette</button>
+        <button onClick={onBack} className="roulette-button">
+          Roulette
+        </button>
       </div>
     </div>
   );

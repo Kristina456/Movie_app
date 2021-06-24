@@ -1,6 +1,6 @@
 import React from "react";
 import { MovieApi } from "./MoreInfo";
-import "./_more-info.scss";
+import "../scss/pages/_more-info.scss";
 
 export interface MovieInformationProps {
   movie: MovieApi;
@@ -39,7 +39,9 @@ export default function MovieInformation({
       </div>
 
       <div className="footer">
-        <button onClick={onRoulette}>Return to roulette</button>
+        <button className="roulette-button" onClick={onRoulette}>
+          Roulette
+        </button>
       </div>
     </div>
   );
