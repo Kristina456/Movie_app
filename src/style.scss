@@ -1,8 +1,7 @@
-@import "./components/scss/reset";
-@import "./components/scss/mixins";
-@import "./components/scss/typography";
-@import "./components/scss/allScss";
-
-html {
-  background-color: rgb(197, 236, 236);
-}
+@import "./components/scss/base/reset";
+@import "./components/scss/layout/layout";
+@import "./components/scss/pages/error";
+@import "./components/scss/pages/loading";
+@import "./components/movies-home-page/movie-list";
+@import "./components/scss/base/typography";
+@import "./components/scss/helpers/mixins";

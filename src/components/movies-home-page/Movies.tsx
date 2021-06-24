@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { setConstantValue } from "typescript";
-import "./Movies.scss";
 import Loading from "../loading/Loading";
 import Error from "../error/Error";
+import MovieList from "./MovieList";
 
 export interface IMovieApiPage<T> {
   page: number;
@@ -62,7 +62,9 @@ export default function Movies() {
         setResponse(result);
       })
       .catch((error) => setError(error))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const loadNext = function () {
@@ -78,37 +80,23 @@ export default function Movies() {
   };
 
   if (loading) {
-    return Loading();
+    return <Loading />;
   }
 
   if (error) {
-    return Error();
+    return <Error />;
   }
 
-  return (
-    <div>
-      <hr />
-      <h1>Movie list</h1>
-      <button onClick={loadPrevious}>Previous Page</button>
-      <button onClick={loadNext}>Next Page</button>
-      <button onClick={() => history.push("/roulette")}>Roulette</button>
-      <hr />
-      {error && <div>{error}</div>}
-      {response?.results.slice(0, 6).map((item) => (
-        <div className="wrapper" key={item.id}>
-          <div>{item.vote_average}</div>
-          <div>
-            <img
-              src={`https://image.tmdb.org/t/p/w200` + item.poster_path}
-              alt={item.title}
-            />
-          </div>
-          <div>{item.release_date?.substring(0, 4)}</div>
-          <h1>{item.original_title}</h1>
-          <div>Language: {item.original_language}</div>
-          <button onClick={() => routeChange(item.id)}> More info</button>
-        </div>
-      ))}
-    </div>
+  return response ? (
+    <MovieList
+      loadPrevious={loadPrevious}
+      loadNext={loadNext}
+      error={error}
+      routeChange={routeChange}
+      response={response}
+      onBack={() => history.push("/roulette")}
+    />
+  ) : (
+    <Error />
   );
 }

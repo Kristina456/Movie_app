@@ -1,0 +1,83 @@
+@import "../scss/layout/layout";
+@import "../scss/base/colors";
+
+* {
+  box-sizing: border-box;
+}
+
+.c-home_section_result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex: 0 0 90%;
+  font-size: 15px;
+  height: 100%;
+  max-width: 1300px;
+}
+
+.c-home_section_result_movie {
+  margin: 5px;
+  height: 400px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-home_button {
+  flex: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-home_section_result_img {
+  width: 150px;
+  height: auto;
+  max-height: 360px;
+}
+
+.arrow-item {
+  background-color: black;
+  border: none;
+}
+
+.arrow {
+  width: 50px;
+  background-color: black;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.c-home_section_result_movie_vote-average {
+  position: relative;
+  left: 80px;
+  top: 20px;
+}
+
+.vote-result {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px $secondary-color;
+}
+
+.nesto {
+  background-color: $secondary-color;
+  height: 300px;
+  padding: 10px;
+}
+
+.nesto:hover {
+  box-shadow: 0px 0px 30px $secondary-color;
+  cursor: pointer;
+}

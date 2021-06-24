@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import Loading from "../loading/Loading";
 import Error from "../error/Error";
+import MovieInformation from "./MovieInformation";
 
 export interface MovieApi {
   genres: MovieGenre[];
@@ -43,37 +44,20 @@ export default function MoreInfo() {
   }, []);
 
   if (loading) {
-    return Loading();
+    return <Loading />;
   }
 
   if (error) {
-    return Error();
+    return <Error />;
   }
 
-  return (
-    <div>
-      <div>
-        <div>{movie?.original_title}</div>
-        <div>
-          <img
-            src={`https://image.tmdb.org/t/p/w200` + movie?.poster_path}
-            alt={movie?.title}
-          ></img>
-        </div>
-        <div>
-          <a href={movie?.homepage}>{movie?.homepage}</a>
-        </div>
-        <div>{movie?.original_language}</div>
-        <div>{movie?.overview}</div>
-        <div>{movie?.release_date}</div>
-        <div>{movie?.vote_average}</div>
-        <div>{movie?.genres.map((item) => item.name)}</div>
-      </div>
-
-      <button onClick={() => history.push("/home")}>
-        Return to the home page
-      </button>
-      <div></div>
-    </div>
+  return movie ? (
+    <MovieInformation
+      movie={movie}
+      onBack={() => history.push("/")}
+      onRoulette={() => history.push("/roulette")}
+    />
+  ) : (
+    <Loading />
   );
 }
