@@ -50,9 +50,13 @@ export default function MovieList({
                   alt={item.title}
                 />
 
-                <div>{item.release_date?.substring(0, 4)}</div>
-                <h1>{item.original_title}</h1>
-                <div>Language: {item.original_language}</div>
+                <div className="c-home_section_result_about">
+                  <div style={{ fontWeight: `bold`, paddingBottom: `10px` }}>
+                    {item.original_title}
+                  </div>
+                  Release date: {item.release_date?.substring(0, 4)}
+                  <div>Language: {item.original_language}</div>
+                </div>
               </div>
             </div>
           ))}

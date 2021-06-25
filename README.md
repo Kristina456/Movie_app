@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# Movie API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Movie API is still in progres :)
 
-## Available Scripts
+## Technologies
 
-In the project directory, you can run:
+Project is created with:
 
-### `npm start`
+- React JS 17.0.2
+- The movie database (TMDb)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Connect to TMDb
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You can create your TMDb account for free using this [link](https://www.themoviedb.org/signup).\
+To connect to the TMDb you need to paste your key in Movies.tsx, MoreInfo.tsx and Roulette.tsx component,
+or with .env file with environment variable REACT_APP_API_KEY.
 
-### `npm test`
+```javascript
+const API_KEY = `${process.env.REACT_APP_API_KEY}`;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install it locally using npm:
 
-### `npm run eject`
+```
+$ nmp install
+$ npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

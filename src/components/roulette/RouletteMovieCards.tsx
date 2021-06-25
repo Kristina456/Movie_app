@@ -31,12 +31,7 @@ export default function RouleteMovieCards({
                 <div>{item.release_date?.substring(0, 4)}</div>
                 <h1>{item.original_title}</h1>
                 <div>Language: {item.original_language}</div>
-                <button
-                  className="roulette-button"
-                  onClick={() => routeChange(item.id)}
-                >
-                  Roulette
-                </button>
+                <button onClick={() => routeChange(item.id)}>More info</button>
               </div>
               <hr />
             </div>
