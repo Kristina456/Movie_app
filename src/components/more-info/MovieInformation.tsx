@@ -1,6 +1,6 @@
 import React from "react";
 import { MovieApi } from "./MoreInfo";
-import "../scss/pages/_more-info.scss";
+import "./_more-info.scss";
 
 export interface MovieInformationProps {
   movie: MovieApi;

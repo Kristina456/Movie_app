@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Loading from "../loading/Loading";
 import Error from "../error/Error";
-import RouletteForm from "./RouletteForm";
+import RouletteMovies from "./RouletteMovies";
 
 export interface MovieRoulette {
   page: number;
@@ -53,11 +53,17 @@ export default function Roulette() {
   if (error) {
     <Error />;
   }
+  const history = useHistory();
+  const routeChange = (movieId: number) => {
+    let path = `/moreInfo/${movieId}`;
+    history.push(path);
+  };
 
   return moviesByGenre ? (
-    <RouletteForm
-      setGenre={(e: { target: { value: any; }; }) => setGenre(e.target.value)}
+    <RouletteMovies
+      setGenre={(e: { target: { value: any } }) => setGenre(e.target.value)}
       moviesByGenre={moviesByGenre}
+      routeChange={routeChange}
     />
   ) : (
     <Loading />

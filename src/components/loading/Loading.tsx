@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../scss/pages/_loading.scss";
+import "./_loading.scss";
 
 export default function Loading() {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { IMovieApiPage, IMovieApiPopularResponse } from "./Movies";
 import leftArrow from "../images/leftArrow.png";
 import rightArrow from "../images/rightArrow.png";
-import "../scss/pages/_home.scss";
+import "./_home.scss";
 
 export interface MovieListProps {
   response: IMovieApiPage<IMovieApiPopularResponse>;

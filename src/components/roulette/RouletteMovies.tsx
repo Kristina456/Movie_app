@@ -1,17 +1,18 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { MovieRoulette } from "./Roulette";
-import RouleteMovieCards from "./RouletteMovieCards";
-
+import "../scss/layout/_layout.scss";
 
 export interface RouleteFormInfo {
   moviesByGenre: MovieRoulette;
   setGenre: any;
+  routeChange: any;
 }
 
 export default function RouletteForm({
   setGenre,
   moviesByGenre,
+  routeChange,
 }: RouleteFormInfo) {
   const history = useHistory();
   return (
@@ -46,7 +47,35 @@ export default function RouletteForm({
           </select>
         </form>
         <div>
-          <RouleteMovieCards moviesByGenre={moviesByGenre} />
+          <div>
+            {moviesByGenre && moviesByGenre.results ? (
+              <div>
+                {moviesByGenre.results.slice(0, 6).map((item) => (
+                  <div key={item.id}>
+                    <div> {item.original_title} </div>
+                    <div>{item.vote_average}</div>
+                    <div>
+                      <img
+                        src={
+                          `https://image.tmdb.org/t/p/w200` + item.poster_path
+                        }
+                        alt={item.title}
+                      />
+                      <div>{item.release_date?.substring(0, 4)}</div>
+                      <h1>{item.original_title}</h1>
+                      <div>Language: {item.original_language}</div>
+                      <button onClick={() => routeChange(item.id)}>
+                        More info
+                      </button>
+                    </div>
+                    <hr />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div>No results</div>
+            )}
+          </div>
         </div>
       </div>
       <div className="footer">footer</div>
