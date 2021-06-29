@@ -1,3 +1,7 @@
+<p align="center">
+<img src="./gitHub-images/CodingInProgress.jpg" width="400" height="auto" >
+</p>
+
 # Movie API
 
 Movie API is still in progres :)
@@ -31,5 +35,3 @@ Install it locally using npm:
 $ nmp install
 $ npm start
 ```
-
-
