@@ -1,0 +1,22 @@
+@import "../base/colors";
+
+* {
+  box-sizing: border-box;
+}
+
+.roulette-button {
+  background-color: $secondary-color;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px dotted black;
+  position: absolute;
+  left: 90%;
+  bottom: 1%;
+  font-size: 20px;
+}
+
+.roulette-button:hover {
+  box-shadow: 0px 0px 20px $secondary-color;
+  cursor: pointer;
+}

@@ -1,0 +1,54 @@
+@import "../base/colors";
+@import "../components-butttons/roulette";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.form-control {
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.header {
+  flex: 0 0 15%;
+  font-size: 50px;
+  height: 200px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $secondary-color;
+}
+
+.section {
+  display: flex;
+  flex: 0 0 70%;
+  align-content: flex-start;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vw;
+  flex: 1;
+}
+
+.footer {
+  flex: 0 0 15%;
+  width: 100%;
+}
+
+.header:hover {
+  cursor: pointer;
+}

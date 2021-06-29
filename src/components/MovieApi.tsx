@@ -1,30 +1,24 @@
 import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import Movies from "./Movies";
-import Roulette from "./Roulette";
+import Movies from "./home/Movies";
+import Roulette from "./roulette/Roulette";
+import MoreInfo from "./more-info/MoreInfo";
+import "../style.scss";
 
 export default function Navigation() {
   return (
-    <div>
-      <BrowserRouter>
-        <nav>
-          <div>
-            <Link to="/home">Home</Link>
-          </div>
-          <div>
-            <Link to="/roulette">Movie Roulette</Link>
-          </div>
-        </nav>
-
-        <Switch>
-          <Route path="/home">
-            <Movies />
-          </Route>
-          <Route path="/roulette">
-            <Roulette />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/roulette">
+          <Roulette />
+        </Route>
+        <Route path="/moreInfo/:movieId">
+          <MoreInfo />
+        </Route>
+        <Route path="/">
+          <Movies />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
