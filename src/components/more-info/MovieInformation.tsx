@@ -15,30 +15,67 @@ export default function MovieInformation({
 }: MovieInformationProps) {
   return (
     <div className="form-control c-more-item">
-      <div className="header" onClick={onBack}>
+      <div className="c-more_header header" onClick={onBack}>
         Movie API
       </div>
-      <div className="section">
-        <div>
-          <div>{movie.original_title}</div>
-          <div>
-            <img
-              src={`https://image.tmdb.org/t/p/w200` + movie.poster_path}
-              alt={movie.title}
-            ></img>
+      <div className=" c-more_section section">
+        <div className="c-more__section__item">
+          <div className="c-more__section__movie-card">
+            <div className="c-more__section__movie-poster">
+              <img
+                src={`https://image.tmdb.org/t/p/w200` + movie.poster_path}
+                alt={movie.title}
+              ></img>
+            </div>
+            <div className="c-more__section__informations informations">
+              <div>
+                <div
+                  className="informations__card-title"
+                  style={{ fontWeight: `bold` }}
+                >
+                  {movie.original_title}
+                </div>
+                <div className="informations__card-info">
+                  <div className="informations__card-info__item">
+                    <span className="informations__card-info__about">Original language: </span>
+                    <span>{movie.original_language}</span>
+                  </div>
+                  <div className="informations__card-info__item">
+                    <div className="informations__card-info__about">Movie overview:</div>
+                    <div style={{ lineHeight: "1.5" }}>{movie.overview}</div>
+                  </div>
+                  <div className="informations__card-info__item">
+                    <span className="informations__card-info__about">Release date: </span>
+                    <span>{movie.release_date}</span>
+                  </div>
+                  <div className="informations__card-info__item">
+                    <span className="informations__card-info__about">Movie vote average:</span>
+                    <span>{movie.vote_average}</span>
+                  </div>
+                  <div className="informations__card-info__item">
+                    <span className="informations__card-info__about"> Movie genres:</span>
+                    <span>
+                      {movie.genres.map((item) => (
+                        <span>{item.name} </span>
+                      ))}
+                    </span>
+                  </div>
+                  <div className="informations__card-info__item">
+                    <span className="informations__card-info__about">Homepage:</span>
+                    <span>
+                      <a className="movie-homepage" href={movie.homepage}>
+                        {movie.homepage}
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <a href={movie.homepage}>{movie.homepage}</a>
-          </div>
-          <div>{movie.original_language}</div>
-          <div>{movie.overview}</div>
-          <div>{movie.release_date}</div>
-          <div>{movie.vote_average}</div>
-          <div>{movie.genres.map((item) => item.name)}</div>
         </div>
       </div>
 
-      <div className="footer">
+      <div className="c-more_footer footer ">
         <button className="roulette-button" onClick={onRoulette}>
           Roulette
         </button>
