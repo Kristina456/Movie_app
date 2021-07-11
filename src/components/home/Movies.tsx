@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
-import { setConstantValue } from "typescript";
+import { useHistory } from "react-router";
 import Loading from "../loading/Loading";
 import Error from "../error/Error";
 import MovieList from "./MovieList";
@@ -60,6 +59,7 @@ export default function Movies() {
         console.log("Movie api response", json);
         const result: IMovieApiPage<IMovieApiPopularResponse> = json;
         setResponse(result);
+       
       })
       .catch((error) => setError(error))
       .finally(() => {

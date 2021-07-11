@@ -22,48 +22,68 @@ export default function MovieList({
   onBack,
 }: MovieListProps) {
   return (
-    <div className="c-home-item form-control">
+    <div className="c-home__item form-control">
       <div className="header">
         <div>Movie API</div>
       </div>
       <div className="section">
-        <div className="c-home_button">
-          <button className="arrow-item" onClick={loadPrevious}>
-            <img className="arrow" src={leftArrow} alt="leftArrow"></img>
+        <div className="c-home__button__item">
+          <button className="c-home__button" onClick={loadPrevious}>
+            <img
+              className="c-home__button__arrow-img"
+              src={leftArrow}
+              alt="leftArrow"
+            ></img>
           </button>
         </div>
         {error && <div>{error}</div>}
-        <div className="c-home_section_result">
+        <div className="c-home__movies__item">
           {response?.results.slice(0, 6).map((item) => (
             <div
               onClick={() => routeChange(item.id)}
-              className="c-home_section_result_movie"
+              className="c-home__movie__item"
               key={item.id}
             >
-              <div className="c-home_section_result_movie_vote-average">
-                <div className="vote-result">{item.vote_average}</div>
-              </div>
-              <div className="nesto">
-                <img
-                  className="c-home_section_result_img"
-                  src={`https://image.tmdb.org/t/p/w200` + item.poster_path}
-                  alt={item.title}
-                />
+              <div className="c-home__movie__information__item informations">
+                <div className="informations__vote__item">
+                  <div className="informations__vote">{item.vote_average}</div>
+                </div>
+                <div className="informations__more__item">
+                  <img
+                    className="informations__more__img"
+                    src={`https://image.tmdb.org/t/p/w200` + item.poster_path}
+                    alt={item.title}
+                  />
 
-                <div className="c-home_section_result_about">
-                  <div style={{ fontWeight: `bold`, paddingBottom: `10px` }}>
-                    {item.original_title}
+                  <div className="informations__more__about__item">
+                    <div className="informations__more__about__title ">
+                      {item.original_title}
+                    </div>
+                    <div className="informations__more__about__title__item ">
+                      <span className="informations__more__about">
+                        Release date:{" "}
+                      </span>
+                      <span>{item.release_date?.substring(0, 4)}</span>
+                    </div>
+                    <div>
+                      <span className="informations__more__about">
+                        Language:{" "}
+                      </span>
+                      <span>{item.original_language}</span>
+                    </div>
                   </div>
-                  Release date: {item.release_date?.substring(0, 4)}
-                  <div>Language: {item.original_language}</div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="c-home_button">
-          <button className="arrow-item" onClick={loadNext}>
-            <img className="arrow" src={rightArrow} alt="rightArrow"></img>
+        <div className="c-home__button__item">
+          <button className="c-home__button" onClick={loadNext}>
+            <img
+              className="c-home__button__arrow-img"
+              src={rightArrow}
+              alt="rightArrow"
+            ></img>
           </button>
         </div>
       </div>

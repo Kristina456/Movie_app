@@ -1,5 +1,97 @@
 @import "../scss/base/colors";
+@import "../scss/layout/layout";
 
-.c-more-item {
+.c-more_section {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.c-more__section__item {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-more__section__movie-card {
+  background-color: $primary-color;
+  width: 80%;
+  height: 80%;
+  max-width: 1100px;
+  height: fit-content;
+  display: flex;
+  box-shadow: 0px 0px 20px $secondary-color;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.c-more__section__movie-poster {
+  padding-right: 30px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-more__section__informations {
+  background-color: $primary-color;
   color: $secondary-color;
+}
+
+.informations__card-title {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 20px;
+  color: $third-color;
+}
+
+.informations__card-info {
+  padding: 30px;
+}
+
+.informations__card-info__about {
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 5px;
+  color: $third-color;
+}
+
+.informations__card-info__item {
+  padding: 5px;
+}
+
+.movie-homepage {
+  color: $third-color;
+}
+
+@media screen and (max-width: 1000px) {
+  .c-more__section__movie-card {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .c-more__section__movie-poster {
+    text-align: center;
+  }
+
+  .c-more__section__item {
+    padding-top: 20px;
+    align-items: initial;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .c-more__section__movie-card {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .c-more__section__item {
+    padding-top: 20px;
+    align-items: initial;
+  }
 }
