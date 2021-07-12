@@ -61,13 +61,13 @@ export default function MovieList({
                     </div>
                     <div className="informations__more__about__title__item ">
                       <span className="informations__more__about">
-                        Release date:{" "}
+                        Release date:
                       </span>
                       <span>{item.release_date?.substring(0, 4)}</span>
                     </div>
                     <div>
                       <span className="informations__more__about">
-                        Language:{" "}
+                        Language:
                       </span>
                       <span>{item.original_language}</span>
                     </div>
