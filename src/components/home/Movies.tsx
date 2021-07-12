@@ -59,7 +59,6 @@ export default function Movies() {
         console.log("Movie api response", json);
         const result: IMovieApiPage<IMovieApiPopularResponse> = json;
         setResponse(result);
-       
       })
       .catch((error) => setError(error))
       .finally(() => {

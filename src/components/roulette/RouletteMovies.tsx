@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import { MovieRoulette } from "./Roulette";
 import "../scss/layout/_layout.scss";
+import Error from "../error/Error";
 
 export interface RouleteFormInfo {
   moviesByGenre: MovieRoulette;
@@ -82,11 +83,15 @@ export default function RouletteForm({
                           </div>
                           <div className="c-roulette__movie__informations__info">
                             <div>
-                              <span className="c-roulette__movie__informations__style">Release date:</span>
+                              <span className="c-roulette__movie__informations__style">
+                                Release date:
+                              </span>
                               <span>{item.release_date?.substring(0, 4)}</span>
                             </div>
                             <div>
-                              <span className="c-roulette__movie__informations__style">Language:</span>
+                              <span className="c-roulette__movie__informations__style">
+                                Language:
+                              </span>
                               <span>{item.original_language}</span>
                             </div>
                           </div>
@@ -97,7 +102,9 @@ export default function RouletteForm({
                 ))}
               </div>
             ) : (
-              <div>No results</div>
+              <div>
+                <Error />
+              </div>
             )}
           </div>
         </div>

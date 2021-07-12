@@ -44,6 +44,9 @@
 
 .c-roulette__section__movie-result__information__item {
   background-color: $primary-color;
+  margin: 0 auto;
+  width: fit-content;
+  height: fit-content;
 }
 
 .c-roulette__movie__informations__item {
@@ -82,7 +85,7 @@
 
 .c-roulette__movie__informations__title {
   text-align: center;
-  padding: 15px;
+  padding: 10px;
 }
 
 .c-roulette__movie__informations__info {
@@ -98,8 +101,29 @@
   margin: 10px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
+  .c-roulette__section__movie-result {
+    width: calc(100% / 2);
+    height: fit-content;
+    display: flex wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 850px) {
   .c-roulette__section__form {
     width: 90%;
+  }
+
+  .c-roulette__section__movie-result {
+    width: 100%;
+    height: fit-content;
+    display: flex wrap;
+    justify-content: center;
+  }
+
+  .c-roulette__section__movie-result {
+    width: 100%;
+    display: flex;
   }
 }
