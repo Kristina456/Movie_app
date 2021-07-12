@@ -31,11 +31,15 @@ export default function Roulette() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
 
-  const random = Math.floor(Math.random() * 10);
+  const random = () => {
+    const min = 1;
+    const max = 10;
+    return Math.floor(Math.random() * (max - min) + min);
+  };
 
   useEffect(() => {
     setLoading(true);
-    const endpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genre}&page=${random}`;
+    const endpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genre}&page=${random()}`;
     fetch(endpoint)
       .then((response) => response.json())
       .then((json) => {

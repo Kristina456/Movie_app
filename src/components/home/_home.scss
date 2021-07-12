@@ -95,6 +95,11 @@
   padding: 10px;
 }
 
+.informations__more__about__title {
+  text-align: center;
+  padding: 0 0 10px 0;
+}
+
 .item__title {
   font-size: 15px;
   text-align: center;
@@ -107,7 +112,7 @@
 }
 
 .informations__more__about__item {
-  margin: 5px;
+  margin: 0 10px;
 }
 
 @media screen and (max-width: 1200px) {
